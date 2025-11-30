@@ -1,28 +1,29 @@
-import Logo from "@/components/Logo"
-import "./Header.scss"
-import classNames from "classnames"
+import Logo from '@/components/Logo';
+import './Header.scss';
+import classNames from 'classnames';
+import Button from '@/components/Button';
 
 const Header = (props) => {
-  const { url } = props
+  const { url } = props;
 
   const menuItems = [
     {
-      label: "Home",
-      href: "/",
+      label: 'Home',
+      href: '/',
     },
     {
-      label: "Movies & Shows",
-      href: "/movies",
+      label: 'Movies & Shows',
+      href: '/movies',
     },
     {
-      label: "Support",
-      href: "/support",
+      label: 'Support',
+      href: '/support',
     },
     {
-      label: "Subscriptions",
-      href: "/subscriptions",
+      label: 'Subscriptions',
+      href: '/subscriptions',
     },
-  ]
+  ];
 
   return (
     <header className="header">
@@ -34,8 +35,8 @@ const Header = (props) => {
               <li className="header__menu-item" key={index}>
                 <a
                   href={href}
-                  className={classNames("header__menu-link", {
-                    "is-active": href === url,
+                  className={classNames('header__menu-link', {
+                    'is-active': href === url,
                   })}
                 >
                   {label}
@@ -44,9 +45,25 @@ const Header = (props) => {
             ))}
           </ul>
         </nav>
+        <div className="header__actions">
+          <Button
+            label="Search"
+            className="header__button"
+            isLabelHidden
+            mode="transparent"
+            iconName="search"
+          />
+          <Button
+            className="header__button"
+            label="Notification"
+            isLabelHidden
+            mode="transparent"
+            iconName="notification"
+          />
+        </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
